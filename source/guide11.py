@@ -484,7 +484,7 @@ def p_colors(c, n):
             ["Cream on maroon", "10.7 : 1", "Yes, the main combination"],
             ["Maroon on cream or white", "10.7 / 12.8 : 1", "Yes"],
             ["Cream or white on TV gradient", "6.2 : 1 at the lightest point", "Yes, for logos and text"],
-            ["Maroon on TV gradient", "1.7 : 1", "No"],
+            ["Maroon on TV gradient", "1.4 : 1 at the darkest point", "No"],
             ["Maroon on black", "1.6 : 1", "No"],
             ["Cream on white", "1.2 : 1", "No"]]
     y = table(c, rows, M, y + 30, [0, 560, 960], rh=58)

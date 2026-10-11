@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wildcats Brand Kit</title>
+  <meta name="description" content="Logos, colors, fonts, and templates for Ninety Six High School athletics, clubs, and school spirit.">
+  <meta property="og:title" content="Ninety Six Wildcats Brand Kit">
+  <meta property="og:description" content="Logos, colors, fonts, and templates for Ninety Six High School athletics, clubs, and school spirit.">
+  <meta property="og:image" content="https://gbyo.github.io/wildcatsbrand/site/og.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#5E1A1D">
+  <link rel="icon" href="logos/icon/wildcats-icon-maroon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="social/profile/wildcats-profile-icon-cream-on-maroon.png">
+  <link rel="stylesheet" href="site/style.css">
+</head>
+<body>
+  <a class="skip" href="#logos">Skip to logos</a>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brandlink" href="#top" aria-label="Wildcats Brand Kit, back to top">
+        <img src="logos/icon/wildcats-icon-cream.svg" alt="" width="40" height="31">
+        <span>Brand kit</span>
+      </a>
+      <nav aria-label="Sections">
+        <a href="#logos">Logos</a>
+        <a href="#teams">Teams</a>
+        <a href="#colors">Colors</a>
+        <a href="#fonts">Fonts</a>
+        <a href="#templates">Templates</a>
+        <a href="#guidelines">Guidelines</a>
+      </nav>
+      <a class="gh" href="https://github.com/gbyo/wildcatsbrand">GitHub</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <span class="tag tag-cream">Version 1.1</span>
+        <h1><img src="logos/primary/wildcats-primary-cream.svg" alt="Ninety Six Wildcats"></h1>
+        <p class="lead">Logos, colors, fonts, and templates for Ninety Six High School athletics, clubs, and school spirit.</p>
+        <div class="actions">
+          <a class="btn btn-cream" id="zip-link" href="#">Download everything (ZIP)</a>
+          <a class="btn btn-ink" id="pdf-link" href="#">Brand guidelines (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Logo finder -->
+    <section class="section" id="logos" aria-labelledby="logos-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="logos-h">Logos</h2>
+          <p>Pick a logo, a color, and a background to preview it, then download the file you need. Combinations the guidelines don't allow are flagged.</p>
+        </div>
+
+        <div class="finder">
+          <form class="controls" id="finder-form" onsubmit="return false">
+            <fieldset>
+              <legend>Logo</legend>
+              <div class="choices" id="mark-choices"></div>
+              <label class="select-label" for="team-select">Team or club</label>
+              <select id="team-select"><option value="">Choose a team or club</option></select>
+              <div class="seg" id="layout-seg" hidden>
+                <label><input type="radio" name="layout" value="horizontal" checked><span>Horizontal</span></label>
+                <label><input type="radio" name="layout" value="square"><span>Square</span></label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Logo color</legend>
+              <div class="swatches" id="color-choices"></div>
+            </fieldset>
+            <fieldset>
+              <legend>Preview background</legend>
+              <div class="swatches" id="bg-choices"></div>
+            </fieldset>
+          </form>
+
+          <div class="stage-col">
+            <div class="stage" id="stage" data-bg="maroon">
+              <img id="stage-img" alt="">
+              <span class="verdict" id="verdict" aria-live="polite"></span>
+            </div>
+            <div class="stage-info">
+              <div>
+                <h3 id="sel-name"></h3>
+                <p id="sel-use"></p>
+                <p class="meta" id="sel-min"></p>
+              </div>
+              <div class="downloads" id="downloads"></div>
+            </div>
+            <p class="filename">File: <code id="sel-file"></code></p>
+          </div>
+        </div>
+
+        <h3 class="sub">Profile pictures</h3>
+        <p class="subtext">1080 x 1080 px, sized for a circular crop. Click one to download it.</p>
+        <div class="profiles" id="profiles"></div>
+      </div>
+    </section>
+
+    <!-- Teams -->
+    <section class="section section-tile" id="teams" aria-labelledby="teams-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="teams-h">Teams and Clubs</h2>
+          <p>Every team and club uses the 96 box with its own name. Choose one to open it in the logo finder.</p>
+        </div>
+        <div class="team-tools">
+          <label class="search">
+            <span class="visually-hidden">Search teams and clubs</span>
+            <input type="search" id="team-search" placeholder="Search teams and clubs" autocomplete="off">
+          </label>
+          <span class="count" id="team-count" aria-live="polite"></span>
+        </div>
+        <div class="team-grid" id="team-grid"></div>
+        <p class="note">Need a logo for a group that isn't listed? Team logos follow fixed rules for long names, two-word names, and abbreviations (guidelines, page 8). New ones are added in <a href="https://github.com/gbyo/wildcatsbrand/blob/main/source/kit.py"><code>source/kit.py</code></a>.</p>
+      </div>
+    </section>
+
+    <!-- Colors -->
+    <section class="section" id="colors" aria-labelledby="colors-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="colors-h">Colors</h2>
+          <p>Maroon and cream are the school colors. Black and white are for one-color printing. The gradient is for TV screens and digital backgrounds. Click a value to copy it.</p>
+        </div>
+        <div class="color-grid" id="color-grid"></div>
+
+        <h3 class="sub">Combinations</h3>
+        <div class="table-wrap">
+          <table class="pairs" id="pairs">
+            <thead><tr><th scope="col">Combination</th><th scope="col">Contrast</th><th scope="col">Use</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="note">CMYK and Pantone values haven't been set yet. Have the printer match maroon and cream to a printed proof before the first large print or apparel order.</p>
+      </div>
+    </section>
+
+    <!-- Fonts -->
+    <section class="section section-tile" id="fonts" aria-labelledby="fonts-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="fonts-h">Fonts</h2>
+          <p>Everything uses the Saira family. It's free on Google Fonts and works in Google Docs, Slides, and Canva. The logos are artwork, so never type them out in a font.</p>
+        </div>
+        <div class="specimens">
+          <div class="specimen">
+            <p class="spec-label">Saira Condensed Black</p>
+            <p class="spec-big cond">GAME DAY</p>
+            <p class="spec-alpha cond">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</p>
+            <p class="spec-use">Headlines, all caps.</p>
+            <div class="spec-links">
+              <a class="btn btn-small btn-maroon" href="fonts/SairaCondensed-Black.ttf" download>Download TTF</a>
+              <a class="textlink" href="https://fonts.google.com/specimen/Saira+Condensed">Google Fonts</a>
+            </div>
+          </div>
+          <div class="specimen">
+            <p class="spec-label">Saira</p>
+            <p class="spec-big saira">Fall Schedule</p>
+            <p class="spec-alpha saira-body">Practice starts Monday at 3:30 in the main gym. Bring water and a signed physical form.</p>
+            <p class="spec-use">Headings in Bold, body text in Regular, labels in SemiBold.</p>
+            <div class="spec-links">
+              <a class="btn btn-small btn-maroon" href="fonts/Saira%5Bwdth,wght%5D.ttf" download>Download TTF</a>
+              <a class="textlink" href="https://fonts.google.com/specimen/Saira">Google Fonts</a>
+            </div>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="hierarchy">
+            <thead><tr><th scope="col">Role</th><th scope="col">Sample</th><th scope="col">Setting</th></tr></thead>
+            <tbody>
+              <tr><td>Display headline</td><td><span class="h-display">GAME DAY</span></td><td>Saira Condensed Black, all caps</td></tr>
+              <tr><td>Section heading</td><td><span class="h-section">Fall Schedule</span></td><td>Saira Bold, title case</td></tr>
+              <tr><td>Body text</td><td><span class="h-body">Practice starts Monday at 3:30.</span></td><td>Saira Regular, 10 to 12 pt</td></tr>
+              <tr><td>Labels and details</td><td><span class="h-label">Friday · 7:30 PM · Home</span></td><td>Saira SemiBold, all caps, +12% spacing</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Templates -->
+    <section class="section" id="templates" aria-labelledby="templates-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="templates-h">Templates</h2>
+          <p>Each template has an example and a blank background. Download the blank one and add your own text in Canva, Google Slides, or PowerPoint, using the fonts above.</p>
+        </div>
+        <div class="template-grid" id="template-grid"></div>
+      </div>
+    </section>
+
+    <!-- Guidelines -->
+    <section class="section section-dark" id="guidelines" aria-labelledby="guidelines-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="guidelines-h">Guidelines</h2>
+          <p>Nineteen pages on which logo to use, sizes, colors, team logos, and what not to do. Click a page to read it here.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-cream" id="pdf-link-2" href="#">Download the PDF</a>
+          <a class="btn btn-ink" href="production-tests/print-and-apparel-size-tests.pdf">Size test sheets</a>
+          <a class="btn btn-ink" href="https://github.com/gbyo/wildcatsbrand/blob/main/guidelines/audit.md">What changed in v1.1</a>
+        </div>
+        <ol class="pages" id="pages"></ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <img src="logos/horizontal/wildcats-horizontal-cream.svg" alt="96 Wildcats" width="200">
+      <p>Ninety Six Wildcats Brand Kit, version 1.1. Fonts are under the SIL Open Font License. Every file on this site is built from the scripts in the <a href="https://github.com/gbyo/wildcatsbrand">GitHub repository</a>.</p>
+    </div>
+  </footer>
+
+  <dialog class="viewer" id="viewer" aria-labelledby="viewer-title">
+    <div class="viewer-bar">
+      <p id="viewer-title"></p>
+      <div class="viewer-nav">
+        <button type="button" class="btn btn-small btn-ink" id="viewer-prev" aria-label="Previous page">Previous</button>
+        <button type="button" class="btn btn-small btn-ink" id="viewer-next" aria-label="Next page">Next</button>
+        <button type="button" class="btn btn-small btn-cream" id="viewer-close">Close</button>
+      </div>
+    </div>
+    <img id="viewer-img" alt="">
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="site/data.js"></script>
+  <script src="site/app.js"></script>
+</body>
+</html>
