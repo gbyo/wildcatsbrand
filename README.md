@@ -1,6 +1,9 @@
-# Ninety Six Wildcats Brand Kit
-
-<img src="guidelines/pages/01_cover.png" width="420" alt="Brand guidelines cover">
+<h1>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset=".github/readme-header-96-brand-cream.svg">
+    <img src=".github/readme-header-96-brand-maroon.svg" width="420" alt="96 BRAND: Ninety Six Wildcats Brand Kit">
+  </picture>
+</h1>
 
 Logos, guidelines, and templates for Ninety Six High School athletics, clubs, and school spirit.
 

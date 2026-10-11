@@ -147,6 +147,13 @@ def build():
         profile(BR.as_paths(BR.team_square(name)), COLORS["cream"], COLORS["maroon"],
                 os.path.join(d, "teams", f"wildcats-profile-{slug(name)}.png"), frac=0.70)
     print("social profiles")
+    # README header: the team system with BRAND as the name
+    d = os.path.join(ROOT, ".github")
+    os.makedirs(d, exist_ok=True)
+    for cname in ("maroon", "cream"):
+        wm.save_svg([(p, COLORS[cname]) for p in BR.as_paths(BR.team("BRAND"))],
+                    os.path.join(d, f"readme-header-96-brand-{cname}.svg"), pad=0)
+    print("readme header")
 
 
 if __name__ == "__main__":
