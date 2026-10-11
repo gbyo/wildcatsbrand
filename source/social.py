@@ -599,6 +599,9 @@ EXAMPLES = [
     ("result", result, "example", dict(
         team="Football", us=28, them=14, opponent="Abbeville", note="Region 1-2A · 6–1 overall",
         photo="football-sideline-dusk.jpg", focus=(0.5, 0.3))),
+    ("result", result, "example-soccer", dict(
+        team="Soccer", us=3, them=1, opponent="Saluda", note="Region 1-2A",
+        photo="water-break.jpg", focus=(0.45, 0.45))),
     ("result", result, "example-no-photo", dict(
         team="Basketball", us=112, them=108, opponent="McCormick", note="Final, 2OT")),
     ("schedule", schedule, "example", dict(team="Football", title="2026 Schedule", events=SEASON)),

@@ -339,6 +339,10 @@ window.BRAND = {
     },
     {
      "label": "Example 2",
+     "path": "templates/social/wildcats-social-result-example-soccer.png"
+    },
+    {
+     "label": "Example 3",
      "path": "templates/social/wildcats-social-result-example-no-photo.png"
     },
     {
