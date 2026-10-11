@@ -335,7 +335,7 @@ def team_stacked(lines):
 TEAMS = [
     ("football", ["FOOTBALL"]), ("soccer", ["SOCCER"]), ("basketball", ["BASKETBALL"]),
     ("baseball", ["BASEBALL"]), ("softball", ["SOFTBALL"]), ("volleyball", ["VOLLEYBALL"]),
-    ("wrestling", ["WRESTLING"]), ("tennis", ["TENNIS"]), ("golf", ["GOLF"]),
+    ("wrestling", ["WRESTLING"]), ("golf", ["GOLF"]),
 ("cheer", ["CHEER"]), ("cross-country", ["CROSS", "COUNTRY"]),
     ("track-and-field", ["TRACK &", "FIELD"]), ("band", ["BAND"]),
 ]

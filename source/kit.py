@@ -23,7 +23,7 @@ GRAD_TOP, GRAD_BOTTOM = "#973333", "#320B0B"
 
 TEAMS = [
     # sports
-    "Football", "Soccer", "Basketball", "Baseball", "Softball", "Volleyball", "Wrestling", "Tennis",
+    "Football", "Soccer", "Basketball", "Baseball", "Softball", "Volleyball", "Wrestling",
     "Golf", "Cheer", "Cross Country", "Track & Field",
     # clubs and groups
     "Marching Band", "Student Council", "Academic Team", "NHS",
