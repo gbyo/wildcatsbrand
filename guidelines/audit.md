@@ -49,7 +49,7 @@ The thinnest features in the artwork are what limit how small each logo can go:
 - Long names (National Honor Society), names of three or more words, ampersands, abbreviations, clubs as opposed to teams, and JV/varsity labels.
 - Formal and academic use, where the athletic WILDCATS treatment isn't appropriate.
 - Production minimums for embroidery, screen printing and vinyl.
-- Which color combinations are not allowed (maroon on the TV gradient is 1.73:1; maroon on black is 1.64:1).
+- Which color combinations are not allowed (maroon on the TV gradient is as low as 1.4:1; maroon on black is 1.64:1).
 - File naming, PDF versions, and any guidance for layouts and type beyond the logo itself.
 
 ## Changes made in v1.1
