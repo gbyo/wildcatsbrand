@@ -90,6 +90,14 @@ window.BRAND = {
  ],
  "teams": [
   {
+   "id": "athletics",
+   "name": "Athletics",
+   "lines": 1,
+   "horizontal": "logos/teams/athletics/wildcats-team-athletics-horizontal-{color}",
+   "square": "logos/teams/athletics/wildcats-team-athletics-square-{color}",
+   "profile": "social/profile/teams/wildcats-profile-athletics.png"
+  },
+  {
    "id": "football",
    "name": "Football",
    "lines": 1,
@@ -178,12 +186,36 @@ window.BRAND = {
    "profile": "social/profile/teams/wildcats-profile-track-and-field.png"
   },
   {
+   "id": "band",
+   "name": "Band",
+   "lines": 1,
+   "horizontal": "logos/teams/band/wildcats-team-band-horizontal-{color}",
+   "square": "logos/teams/band/wildcats-team-band-square-{color}",
+   "profile": "social/profile/teams/wildcats-profile-band.png"
+  },
+  {
    "id": "marching-band",
    "name": "Marching Band",
    "lines": 2,
    "horizontal": "logos/teams/marching-band/wildcats-team-marching-band-horizontal-{color}",
    "square": "logos/teams/marching-band/wildcats-team-marching-band-square-{color}",
    "profile": "social/profile/teams/wildcats-profile-marching-band.png"
+  },
+  {
+   "id": "indoor-percussion",
+   "name": "Indoor Percussion",
+   "lines": 2,
+   "horizontal": "logos/teams/indoor-percussion/wildcats-team-indoor-percussion-horizontal-{color}",
+   "square": "logos/teams/indoor-percussion/wildcats-team-indoor-percussion-square-{color}",
+   "profile": "social/profile/teams/wildcats-profile-indoor-percussion.png"
+  },
+  {
+   "id": "drama",
+   "name": "Drama",
+   "lines": 1,
+   "horizontal": "logos/teams/drama/wildcats-team-drama-horizontal-{color}",
+   "square": "logos/teams/drama/wildcats-team-drama-square-{color}",
+   "profile": "social/profile/teams/wildcats-profile-drama.png"
   },
   {
    "id": "student-council",
@@ -194,6 +226,14 @@ window.BRAND = {
    "profile": "social/profile/teams/wildcats-profile-student-council.png"
   },
   {
+   "id": "sga",
+   "name": "SGA (Student Government)",
+   "lines": 1,
+   "horizontal": "logos/teams/sga/wildcats-team-sga-horizontal-{color}",
+   "square": "logos/teams/sga/wildcats-team-sga-square-{color}",
+   "profile": "social/profile/teams/wildcats-profile-sga.png"
+  },
+  {
    "id": "academic-team",
    "name": "Academic Team",
    "lines": 2,
@@ -202,12 +242,68 @@ window.BRAND = {
    "profile": "social/profile/teams/wildcats-profile-academic-team.png"
   },
   {
+   "id": "beta-club",
+   "name": "Beta Club",
+   "lines": 2,
+   "horizontal": "logos/teams/beta-club/wildcats-team-beta-club-horizontal-{color}",
+   "square": "logos/teams/beta-club/wildcats-team-beta-club-square-{color}",
+   "profile": "social/profile/teams/wildcats-profile-beta-club.png"
+  },
+  {
    "id": "nhs",
-   "name": "NHS",
+   "name": "NHS (National Honor Society)",
    "lines": 1,
    "horizontal": "logos/teams/nhs/wildcats-team-nhs-horizontal-{color}",
    "square": "logos/teams/nhs/wildcats-team-nhs-square-{color}",
    "profile": "social/profile/teams/wildcats-profile-nhs.png"
+  },
+  {
+   "id": "nehs",
+   "name": "NEHS (National English Honor Society)",
+   "lines": 1,
+   "horizontal": "logos/teams/nehs/wildcats-team-nehs-horizontal-{color}",
+   "square": "logos/teams/nehs/wildcats-team-nehs-square-{color}",
+   "profile": "social/profile/teams/wildcats-profile-nehs.png"
+  },
+  {
+   "id": "nths",
+   "name": "NTHS (National Technical Honor Society)",
+   "lines": 1,
+   "horizontal": "logos/teams/nths/wildcats-team-nths-horizontal-{color}",
+   "square": "logos/teams/nths/wildcats-team-nths-square-{color}",
+   "profile": "social/profile/teams/wildcats-profile-nths.png"
+  },
+  {
+   "id": "fca",
+   "name": "FCA (Fellowship of Christian Athletes)",
+   "lines": 1,
+   "horizontal": "logos/teams/fca/wildcats-team-fca-horizontal-{color}",
+   "square": "logos/teams/fca/wildcats-team-fca-square-{color}",
+   "profile": "social/profile/teams/wildcats-profile-fca.png"
+  },
+  {
+   "id": "ffa",
+   "name": "FFA",
+   "lines": 1,
+   "horizontal": "logos/teams/ffa/wildcats-team-ffa-horizontal-{color}",
+   "square": "logos/teams/ffa/wildcats-team-ffa-square-{color}",
+   "profile": "social/profile/teams/wildcats-profile-ffa.png"
+  },
+  {
+   "id": "fishing-team",
+   "name": "Fishing Team",
+   "lines": 2,
+   "horizontal": "logos/teams/fishing-team/wildcats-team-fishing-team-horizontal-{color}",
+   "square": "logos/teams/fishing-team/wildcats-team-fishing-team-square-{color}",
+   "profile": "social/profile/teams/wildcats-profile-fishing-team.png"
+  },
+  {
+   "id": "shooting-club",
+   "name": "Shooting Club",
+   "lines": 2,
+   "horizontal": "logos/teams/shooting-club/wildcats-team-shooting-club-horizontal-{color}",
+   "square": "logos/teams/shooting-club/wildcats-team-shooting-club-square-{color}",
+   "profile": "social/profile/teams/wildcats-profile-shooting-club.png"
   }
  ],
  "profiles": [

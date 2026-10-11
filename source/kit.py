@@ -23,11 +23,14 @@ COLORS = {"maroon": "#5E1A1D", "cream": "#F5EAD5", "black": "#000000", "white": 
 GRAD_TOP, GRAD_BOTTOM = "#973333", "#320B0B"
 
 TEAMS = [
+    # athletics department, for anything that covers every sport
+    "Athletics",
     # sports
     "Football", "Soccer", "Basketball", "Baseball", "Softball", "Volleyball", "Wrestling",
     "Golf", "Cheer", "Cross Country", "Track & Field",
     # clubs and groups
-    "Marching Band", "Student Council", "Academic Team", "NHS",
+    "Band", "Marching Band", "Indoor Percussion", "Drama", "Student Council", "SGA", "Academic Team",
+    "Beta Club", "NHS", "NEHS", "NTHS", "FCA", "FFA", "Fishing Team", "Shooting Club",
 ]
 
 # Profile-picture labels for names of two or more words: the short form the
