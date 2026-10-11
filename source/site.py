@@ -18,6 +18,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import brand as BR  # noqa: E402
 import kit as K  # noqa: E402
 import templates as T  # noqa: E402
+import social as S  # noqa: E402
 import guide11 as G11  # noqa: E402
 
 ROOT = K.ROOT
@@ -42,9 +43,6 @@ SCHOOL = [
 DISPLAY = {"NHS": "NHS", "Track & Field": "Track & Field"}
 TEMPLATE_INFO = {
     "tv-slide": ("TV slide", "1920 x 1080 px"),
-    "social-post": ("Social post", "1080 x 1080 px"),
-    "instagram-story": ("Instagram story", "1080 x 1920 px"),
-    "team-schedule": ("Team schedule", "1080 x 1350 px"),
     "event-poster-11x17": ("Event poster", "11 x 17 in"),
     "tshirt-concept": ("T-shirt concept", "Front and back"),
     "letterhead": ("Letterhead", "8.5 x 11 in"),
@@ -64,6 +62,24 @@ def thumb(src, dst, width):
     h = round(im.height * width / im.width)
     im.resize((width, h), Image.LANCZOS).save(dst, quality=84, optimize=True)
     return rel(dst), width, h
+
+
+def social_templates():
+    """One card per social composition: its examples, the blank, and the
+    editable PowerPoint file that holds every composition."""
+    out = []
+    for key, name in S.NAMES.items():
+        suffixes = [sfx for k, _, sfx, _ in S.EXAMPLES + S.STORIES if k == key]
+        t, tw, th = thumb(S.path_for(key, suffixes[0]), os.path.join(SITE, "thumbs", f"template-social-{key}.jpg"),
+                          720)
+        files = [("Example" if i == 0 else f"Example {i + 1}", rel(S.path_for(key, sfx)))
+                 for i, sfx in enumerate(suffixes)]
+        files.append(("Blank", rel(S.path_for(key, "blank"))))
+        pptx = "wildcats-social-stories.pptx" if key == "story" else "wildcats-social-posts.pptx"
+        files.append(("Editable PowerPoint", rel(os.path.join(S.OUT, pptx))))
+        out.append(dict(id=f"social-{key}", name=f"Social: {name.lower()}", size=S.SIZES[key], thumb=t, tw=tw,
+                        th=th, files=[dict(label=a, path=b) for a, b in files]))
+    return out
 
 
 def og_image(out):
@@ -96,11 +112,12 @@ def build():
         ("Cream on maroon", "wildcats-profile-icon-cream-on-maroon.png"),
         ("Cream on gradient", "wildcats-profile-icon-cream-on-gradient.png"),
         ("Maroon on cream", "wildcats-profile-icon-maroon-on-cream.png"),
-        ("White on black", "wildcats-profile-icon-white-on-black.png"),
-        ("96 Wildcats", "wildcats-profile-wildcats-cream-on-maroon.png")]]
+        ("White on black", "wildcats-profile-icon-white-on-black.png")]]
 
     templates = []
     for key, _, _, is_print in T.TEMPLATES:
+        if key == "event-poster-11x17":       # social templates follow the TV slide
+            templates += social_templates()
         d = os.path.join(ROOT, "templates", key)
         ex = os.path.join(d, f"wildcats-{key}-example.png")
         t, tw, th = thumb(ex, os.path.join(SITE, "thumbs", f"template-{key}.jpg"), 720)
@@ -120,10 +137,10 @@ def build():
         pages.append(dict(n=i, title=PAGE_TITLES[i - 1], thumb=t, full=rel(src)))
 
     data = dict(
-        version="1.1",
+        version="1.2",
         repo="https://github.com/gbyo/wildcatsbrand",
         zip="https://github.com/gbyo/wildcatsbrand/archive/refs/heads/main.zip",
-        guidelines="guidelines/Wildcats_Brand_Guidelines_v1.1.pdf",
+        guidelines="guidelines/Wildcats_Brand_Guidelines_v1.2.pdf",
         colors=[dict(id=k, name=k.title(), hex=v) for k, v in K.COLORS.items()],
         gradient=dict(top=K.GRAD_TOP, bottom=K.GRAD_BOTTOM),
         marks=marks, teams=teams, profiles=profiles, templates=templates, pages=pages)

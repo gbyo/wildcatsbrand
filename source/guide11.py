@@ -1,7 +1,7 @@
 """
-Ninety Six Wildcats Brand Guidelines v1.1: US Letter, print-ready PDF plus
-200 dpi PNG pages. Built from brand.py (geometry), kit.py (assets) and
-templates.py (applications).
+Ninety Six Wildcats Brand Guidelines v1.2: US Letter, print-ready PDF plus
+200 dpi PNG pages. Built from brand.py (geometry), kit.py (assets),
+templates.py and social.py (applications).
 Run:  python guide11.py   -> guidelines/
 """
 import math
@@ -17,6 +17,7 @@ import brand as BR  # noqa: E402
 import kit as K  # noqa: E402
 import guide as G  # noqa: E402
 import templates as T  # noqa: E402
+import social as S  # noqa: E402
 
 OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "guidelines")
 PAGES_DIR = os.path.join(OUT, "pages")
@@ -33,11 +34,12 @@ NOTE = G.Style(G.SAIRA, 22, DIM, 0.0, wdth=100, wght=600)
 TBL = G.Style(G.SAIRA, 25, BODY, 0.0, wdth=100, wght=400)
 TBLB = G.Style(G.SAIRA, 25, INK, 0.0, wdth=100, wght=700)
 N_PAGES = 19
+VERSION = "1.2"
 
 
 def frame(c, n):
     c.clear(wm.hexc("#FFFFFF"))
-    G.text(c, "Ninety Six Wildcats Brand Guidelines  ·  v1.1", M, H - 80, G.FOOT)
+    G.text(c, f"Ninety Six Wildcats Brand Guidelines  ·  v{VERSION}", M, H - 80, G.FOOT)
     G.text(c, str(n), W - M, H - 80, G.FOOT, align="right")
 
 
@@ -142,7 +144,7 @@ def p_cover(c, n):
     K.gradient(c, 0, 0, W, H)
     K.draw(c, BR.as_paths(BR.primary()), CREAM, W / 2, 1000, width=1240)
     G.text(c, "Brand guidelines", M, H - 150, G.Style(G.SAIRA, 30, CREAM, 0.22, True, wdth=100, wght=700))
-    G.text(c, "Version 1.1", W - M, H - 150, G.Style(G.SAIRA, 30, CREAM, 0.16, True, wdth=100, wght=500),
+    G.text(c, f"Version {VERSION}", W - M, H - 150, G.Style(G.SAIRA, 30, CREAM, 0.16, True, wdth=100, wght=500),
            align="right", alpha=170)
 
 
@@ -540,32 +542,39 @@ def p_panels(c, n):
     G.text(c, "Same slant as the 96 box: the top edge shifts right by 0.12 x the panel's height (6.84 degrees).",
            M + 40, y + 420, G.MINW)
     y += 540
-    gap = 30
-    tw = (CW - 2 * gap) / 3
-    for i, (nm, desc) in enumerate([("Tag", "Small panel holding a short label: a date, a time, GAME DAY. "
-                                            "Text is upright, cap height half the panel's height."),
-                                    ("Band", "A wide panel that runs off one or both page edges. Holds a "
-                                             "logo or a footer line."),
-                                    ("Frame", "A photo container. The photo fills the panel; never add "
-                                              "a border.")]):
+    gap = 26
+    tw = (CW - 3 * gap) / 4
+    for i, (nm, desc) in enumerate([("Tag", "Holds a short label: GAME DAY, FINAL. Upright text, cap "
+                                            "height half the panel's height."),
+                                    ("Number box", "Holds one number: a date or a score. Numerals 64% of its "
+                                                   "height, like the 96 box, but upright."),
+                                    ("Band", "A wide panel that runs off one or both page edges. Holds text "
+                                             "or a logo."),
+                                    ("Frame", "A photo container on TV slides and posters. The photo fills "
+                                              "it; never add a border.")]):
         x = M + i * (tw + gap)
         G.rect(c, x, y, tw, 300, TILE, 8)
         c.save()
         c.clipRect(skia.Rect.MakeXYWH(x, y, tw, 300))
         if i == 0:
-            T.tag(c, "Friday 7:30", x + 60, y + 115, 70, MAROON, CREAM)
+            T.tag(c, "Game day", x + 50, y + 120, 64, MAROON, CREAM)
         elif i == 1:
-            T.panel(c, x - 30, y + 110, tw * 0.82, 90, MAROON)
+            sc = S.Scene(300)
+            sc.panel_text("Date", "10/24", x + 50, y + 100, 100, MAROON, CREAM, numerals=True)
+            S.draw(c, sc)
+        elif i == 2:
+            T.panel(c, x - 30, y + 110, tw * 0.8, 90, MAROON)
         else:
-            T.frame(c, x + 60, y + 50, tw - 140, 200)
+            T.frame(c, x + 50, y + 60, tw - 120, 180)
         c.restore()
         G.text(c, nm, x, y + 360, G.NAME)
         G.para(c, desc, x, y + 405, tw - 10, G.DESC, lh=1.35)
-    y += 640
+    y += 680
     G.text(c, "Rules", M, y, H2)
     bullets(c, ["Always lean right at 6.84 degrees. Never rotate, flip, or round the corners.",
                 "Solid maroon, cream, black, or white, or a photo. No outlines, gradients, or shadows.",
-                "Up to three panels per layout. Don't use panels on formal documents."], M, y + 70, CW)
+                "Up to three panels per layout, not counting the date boxes in a schedule. Don't use panels "
+                "on formal documents."], M, y + 70, CW)
 
 
 def p_tv(c, n):
@@ -592,34 +601,43 @@ def p_tv(c, n):
 def p_social(c, n):
     frame(c, n)
     y = heading(c, "Social Media",
-                "Use the same panels, type, and colors as the TV slides. Team accounts use their own team "
-                "logo and profile picture.") + 40
-    hh = 560
+                "Five post layouts and a story, built from the same parts. Each comes as an example, a blank, "
+                "and an editable PowerPoint file in templates/social.") + 40
+    items = [(k, sfx) for k, _, sfx, _ in S.EXAMPLES if sfx == "example"] + [("story", "example")]
+    gap = 20
+    hh = (CW - gap * (len(items) - 1)) / (0.8 * (len(items) - 1) + 0.5625)
     x = M
-    for name in ("social-post", "instagram-story", "team-schedule"):
-        w_, _ = image(c, tpl(name), x, y, h=hh)
-        x += w_ + 30
-    y += hh + 50
-    G.text(c, "Post 1080 x 1080", M, y, G.MINW)
-    G.text(c, "Story 1080 x 1920", M + 590, y, G.MINW)
-    G.text(c, "Schedule 1080 x 1350", M + 935, y, G.MINW)
-    y += 60
-    d = 180
-    for i, f in enumerate(["wildcats-profile-icon-cream-on-maroon.png", "wildcats-profile-icon-maroon-on-cream.png",
-                           "teams/wildcats-profile-football.png", "teams/wildcats-profile-cross-country.png"]):
+    for key, sfx in items:
+        w_, _ = image(c, S.path_for(key, sfx), x, y, h=hh)
+        G.text(c, S.NAMES[key], x, y + hh + 40, G.MINW)
+        x += w_ + gap
+    y += hh + 110
+    d = 150
+    profiles = [("Main account", "wildcats-profile-icon-cream-on-maroon.png"),
+                ("Football", "teams/wildcats-profile-football.png"),
+                ("Cross Country", "teams/wildcats-profile-cross-country.png"),
+                ("Marching Band", "teams/wildcats-profile-marching-band.png"),
+                ("Academic Team", "teams/wildcats-profile-academic-team.png"),
+                ("NHS", "teams/wildcats-profile-nhs.png")]
+    for i, (nm, f) in enumerate(profiles):
         im = os.path.join(os.path.dirname(OUT), "social", "profile", f)
-        cx = M + d / 2 + i * (d + 40)
+        cx = M + d / 2 + i * (d + 90)
         c.save()
         clip = skia.Path()
         clip.addCircle(cx, y + d / 2, d / 2)
         c.clipPath(clip, doAntiAlias=True)
         image(c, im, cx - d / 2, y, w=d)
         c.restore()
-    G.text(c, "Profile pictures", M + 4 * (d + 40) + 20, y + d / 2, SMALLB)
-    y += d + 70
-    bullets(c, ["Keep text out of the top and bottom 250 px of stories, where the app covers it.",
-                "Profile pictures use the icon, or the team's square logo. Never the full primary logo.",
-                "Schedules: cream date tags for home games, black for away. One team logo per graphic."],
+        G.text(c, nm, cx, y + d + 40, G.MINW, align="center")
+    y += d + 110
+    bullets(c, ["Posts are 1080 x 1350 px. Instagram's profile grid crops square posts at the sides.",
+                "The number box holds one number, a date or a score. Words go outside it.",
+                "Maroon for spirit and athletics; cream for academic and family news. Let photos fill their "
+                "space; don't box them in.",
+                "Keep text out of the top and bottom 250 px of stories, where the app covers it.",
+                "Profile pictures: the 96 box with the team's one-word name, or a short form the team already "
+                "uses (XC). Clubs without one get the full name. The main account uses the 96 alone.",
+                "Never shrink a team logo or the primary logo into a profile picture: at 32 px it can't be read."],
             M, y, CW)
 
 
@@ -720,8 +738,9 @@ def p_files(c, n):
             ("logos/institutional/", "ninetysix-hs-<line or stacked>-<color>"),
             ("social/profile/", "wildcats-profile-<variant>.png"),
             ("templates/<template>/", "wildcats-<template>-<example or blank>.png"),
+            ("templates/social/", "wildcats-social-<layout>-<example or blank>.png, .pptx"),
             ("production-tests/", "Size test sheets"),
-            ("guidelines/", "This document, page images, and the v1.1 audit"),
+            ("guidelines/", "This document, page images, and audits"),
             ("fonts/", "Saira font files and licenses"),
             ("source/", "Scripts that rebuild every file")]
     a_ = G.Style("Saira[wdth,wght].ttf", 25, INK, 0.0, wdth=100, wght=600)
@@ -765,7 +784,7 @@ if __name__ == "__main__":
         fn(c, i)
         surf.makeImageSnapshot().save(os.path.join(PAGES_DIR, f"{i:02d}_{name}.png"), skia.kPNG)
     if not only:
-        stream = skia.FILEWStream(os.path.join(OUT, "Wildcats_Brand_Guidelines_v1.1.pdf"))
+        stream = skia.FILEWStream(os.path.join(OUT, f"Wildcats_Brand_Guidelines_v{VERSION}.pdf"))
         with skia.PDF.MakeDocument(stream) as doc:
             for i, fn in enumerate(PAGES, 1):
                 with doc.page(612, 792) as c:

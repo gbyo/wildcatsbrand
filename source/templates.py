@@ -8,6 +8,7 @@ shear (0.12, 6.84 deg) taken from the 96 box.
                 frame  photo container
 Each template is saved as an example (with sample text) and a blank
 background (panels and logo only) for adding text in Canva, Slides, etc.
+Social media templates are built by social.py.
 Run:  python templates.py   -> templates/
 """
 import os
@@ -118,53 +119,6 @@ def tv_slide(c, W, H, blank=False):
            body(36, "#EBD9C6"))
 
 
-def social_post(c, W, H, blank=False):
-    c.clear(wm.hexc(MAROON))
-    frame(c, -120, -10, 1000, 480)
-    logo(c, lambda: BR.team("Football"), CREAM, 80, H - 80 - 58, height=58)
-    if blank:
-        return
-    tag(c, "Game day", 80, 520, 56, CREAM, MAROON)
-    lines(c, "WILDCATS\nVS. OPPONENT", 80, 700, display(112, CREAM), lh=0.95)
-    G.text(c, "Friday  ·  7:30 PM  ·  Home", 80, 870, heading(40, "#EBD9C6"))
-
-
-def story(c, W, H, blank=False):
-    gradient(c, W, H)
-    m = 80
-    frame(c, -100, 880, 1260, 520)
-    logo(c, BR.icon, CREAM, W / 2 - 60, H - 260 - 93, width=120)   # clear of the reply bar
-    if blank:
-        return
-    tag(c, "Save the date", m, 280, 60, CREAM, MAROON)
-    lines(c, "SPIRIT\nWEEK", m, 540, display(210, CREAM), lh=0.9)
-    G.text(c, "Oct 20 – 24", m, 820, heading(56, CREAM))
-    G.para(c, "A different theme every day. Full list on the school website.", m, 1480, W - 2 * m,
-           body(40, "#EBD9C6"))
-
-
-def schedule(c, W, H, blank=False):
-    c.clear(wm.hexc(MAROON))
-    m = 80
-    logo(c, lambda: BR.team("Volleyball"), CREAM, m, 90, height=78)
-    panel(c, -40, H - 120, W + 80, 120, BLACK)
-    if blank:
-        return
-    G.text(c, "2026 SEASON SCHEDULE", m, 250, label(30, "#EBD9C6"))
-    games = [("Aug 25", "Opponent School", "Home", "6:00"), ("Aug 28", "Opponent School", "Away", "6:00"),
-             ("Sep 2", "Opponent School", "Home", "5:30"), ("Sep 9", "Opponent School", "Away", "6:00"),
-             ("Sep 11", "Opponent School", "Home", "6:00"), ("Sep 16", "Opponent School", "Home", "5:30"),
-             ("Sep 23", "Opponent School", "Away", "6:00"), ("Sep 30", "Senior Night", "Home", "6:00")]
-    y = 320
-    for d, opp, ha, t in games:
-        tag(c, d, m, y, 58, CREAM if ha == "Home" else BLACK, MAROON if ha == "Home" else CREAM)
-        G.text(c, ("vs. " if ha == "Home" else "at ") + opp, m + 250, y + 42, heading(36, CREAM))
-        G.text(c, f"{t} PM", W - m, y + 42, body(34, "#EBD9C6"), align="right")
-        y += 98
-    G.text(c, "Home games in cream", m, H - 48, label(24, "#EBD9C6"))
-    G.text(c, "NINETY SIX WILDCATS", W - m, H - 48, label(24, CREAM), align="right")
-
-
 def poster(c, W, H, blank=False):
     """11 x 17 in at 200 dpi."""
     c.clear(wm.hexc(CREAM))
@@ -179,7 +133,7 @@ def poster(c, W, H, blank=False):
     lines(c, "FALL SPIRIT\nNIGHT", m, 1230, display(270, MAROON), lh=0.9)
     G.para(c, "Food trucks, the marching band, and the first look at this year's teams. "
               "Free for students and families.", m, 2680, W - 2 * m, body(54, "#4A1517"))
-    G.text(c, "6:00 PM  ·  Wildcat Stadium", m, 2960, heading(64, MAROON))
+    G.text(c, "6:00 PM  ·  Wilson Campbell Stadium", m, 2960, heading(64, MAROON))
     G.text(c, "NINETY SIX HIGH SCHOOL", m, H - 95, label(44, CREAM))
     G.text(c, "Website or contact info", W - m, H - 95, body(44, "#EBD9C6"), align="right")
 
@@ -235,9 +189,6 @@ def letterhead(c, W, H, blank=False):
 TEMPLATES = [
     # name, function, size, print?
     ("tv-slide", tv_slide, (1920, 1080), False),
-    ("social-post", social_post, (1080, 1080), False),
-    ("instagram-story", story, (1080, 1920), False),
-    ("team-schedule", schedule, (1080, 1350), False),
     ("event-poster-11x17", poster, (2200, 3400), True),
     ("tshirt-concept", tee, (1800, 1300), False),
     ("letterhead", letterhead, (1700, 2200), True),
