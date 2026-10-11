@@ -44,6 +44,7 @@ jobs:
         run: |
           python kit.py
           python templates.py
+          python social.py
           python sizetests.py
           python guide11.py
           python site.py

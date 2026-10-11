@@ -1,8 +1,49 @@
-# Ninety Six Wildcats Identity: v1.0 Audit
+# Ninety Six Wildcats Identity: Audits
+
+- [v1.2: Social templates and profile pictures](#v12-social-templates-and-profile-pictures)
+- [v1.0 audit, with the changes made in v1.1](#v10-audit-with-the-changes-made-in-v11)
+
+## v1.2: Social templates and profile pictures
+
+A review of the social media templates and profile pictures, rendered from the build and viewed at real phone sizes. The logo geometry did not change. Boards are in `audit/social/`.
+
+### What failed in v1.1
+
+- **Profile pictures** (`02`, `03`). Team pictures were the square team logo at 70% of the canvas. At 32–48 px, the size of comments and feed headers, the 96 was 2–3.5 px tall and read as a blank chip, and team names had a 4–6 px cap height.
+- **Social templates** (`01`). They were three separate examples, not a family. Photos sat in a dark box (44% of the post, 27% of the story), nothing adjusted to longer text, the footer logo competed with the headline, and nearly every canvas was solid maroon. Instagram's profile grid crops posts to 3:4, which cut the 1:1 post's left-aligned text.
+
+### Profile pictures
+
+Six layouts were tested in circles at 180, 96, 64, 48 and 32 px (`04`) and in context (`05`). In comments and feed headers the username sits next to the picture, so the picture mainly has to read as 96. In the story tray, usernames are cut to about ten characters, so a team needs a word of its own there.
+
+| Account | Layout |
+|---|---|
+| Main account | The 96 alone, as large as the circle allows |
+| Sports and groups with a one-word name | The 96 box, fixed size and position, with the name under it: FOOTBALL, BAND, NHS |
+| Established short forms | The same, using the form the team already uses: XC for Cross Country, TRACK, BAND. No invented abbreviations |
+| Clubs without a one-word name | The full name under a smaller 96: Academic Team, Student Council |
+
+The rules are in `AVATAR_LABELS` and `AVATAR` in `source/kit.py`. Final set: `10_v1.2_profile_pictures.jpg`.
+
+### Social templates
+
+Three directions were tested with the same awkward content (`06`–`08`): a two-word headline, a nine-word headline, an academic notice, portrait and landscape photos, no photo, a long opponent, an eight-event schedule, and a three-digit double-overtime score. `09` shows them as Instagram grid tiles and in the feed.
+
+- **Number Box** (chosen). The date or score sits in a slant panel proportioned like the 96 box. Scores read even as grid tiles.
+- **Type & Field.** Cream and typographic. Strong for announcements, but less distinctive.
+- **Full Bleed.** Photo-led. Fails without a photo.
+
+v1.2 has five post layouts (announcement, photo, game or event, result, schedule) at 1080 x 1350 and a story at 1080 x 1920, built by `source/social.py`. Headlines size themselves to fit. Announcements are maroon for spirit and athletics and cream for academic and family news. Photos fill their space instead of sitting in a frame.
+
+### Editable files
+
+The templates are also written as PowerPoint files (`templates/social/*.pptx`). They have real text boxes, slant panels as shapes, and photos that can be replaced. They open in PowerPoint, Keynote and Google Slides, and Canva can import them. A layered PSD was considered and rejected. The Python tools can only write PSDs with flattened pixel layers, so the text would not be editable.
+
+## v1.0 audit, with the changes made in v1.1
 
 This is a review of the v1.0 logo kit and guidelines before any v1.1 changes. All measurements are taken from the artwork files. The team-name rules are tested in `audit/team_system_test.png`. **C** is the cap height of WILDCATS; **H** is the height of the 96 box.
 
-## Keep unchanged
+### Keep unchanged
 
 These parts are working well and stay as they are:
 
@@ -13,7 +54,7 @@ These parts are working well and stay as they are:
 - **The stacked logo.** Its NINETY SIX uses a different font from the primary. I tested switching it to Saira ExtraBold for consistency, and the result was weaker (`audit/stacked_study.png`). It stays as it is, and the difference is now documented as deliberate.
 - **The team-name idea**: the 96 box with the team name in place of WILDCATS.
 
-## Inconsistencies found
+### Inconsistencies found
 
 | # | Issue | Impact |
 |---|---|---|
@@ -25,11 +66,11 @@ These parts are working well and stay as they are:
 | 6 | The guide said NINETY SIX is Saira ExtraBold. The stacked logo uses Saira Condensed Black. | The exception wasn't documented. |
 | 7 | Team names didn't use WILDCATS' spacing adjustments. | Matching letter pairs were spaced differently in team logos. |
 
-## Things that relied on eyeballing
+### Things that relied on eyeballing
 
 None of these had documented values: the slant, tracking, kerning, the custom A, the size of NINETY SIX, all vertical and horizontal spacing, rail weight and length, the box proportions and padding, the box-to-name gap, and line spacing for two-line names. v1.1 defines every one of them as a ratio of C or H (see `brand.py` and the Construction pages of the guide).
 
-## Reproduction risks
+### Reproduction risks
 
 The thinnest features in the artwork are what limit how small each logo can go:
 
@@ -44,7 +85,7 @@ The thinnest features in the artwork are what limit how small each logo can go:
 - The C–A gap was the single weakest point. It closes up in small print, screen printing, vinyl and embroidery.
 - NINETY SIX in the primary is about a quarter the height of WILDCATS, so the primary can't go as small as the other marks on apparel. v1.0 gave one minimum size for screen use only.
 
-## Edge cases not covered in v1.0
+### Edge cases not covered in v1.0
 
 - Long names (National Honor Society), names of three or more words, ampersands, abbreviations, clubs as opposed to teams, and JV/varsity labels.
 - Formal and academic use, where the athletic WILDCATS treatment isn't appropriate.
@@ -52,7 +93,7 @@ The thinnest features in the artwork are what limit how small each logo can go:
 - Which color combinations are not allowed (maroon on the TV gradient is as low as 1.4:1; maroon on black is 1.64:1).
 - File naming, PDF versions, and any guidance for layouts and type beyond the logo itself.
 
-## Changes made in v1.1
+### Changes made in v1.1
 
 Only four changes to the artwork are justified. Each has a before/after comparison:
 
