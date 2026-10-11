@@ -40,7 +40,10 @@ SCHOOL = [
     ("hs-stacked", "School mark, stacked", "Official letters, forms, graduation programs.", "1 in / 140 px",
      "logos/institutional/ninetysix-hs-stacked-{color}"),
 ]
-DISPLAY = {"NHS": "NHS", "Track & Field": "Track & Field"}
+DISPLAY = {"Track & Field": "Track & Field", "NHS": "NHS (National Honor Society)",
+           "NEHS": "NEHS (National English Honor Society)", "NTHS": "NTHS (National Technical Honor Society)",
+           "SGA": "SGA (Student Government)", "FCA": "FCA (Fellowship of Christian Athletes)",
+           "FFA": "FFA"}
 TEMPLATE_INFO = {
     "tv-slide": ("TV slide", "1920 x 1080 px"),
     "event-poster-11x17": ("Event poster", "11 x 17 in"),
