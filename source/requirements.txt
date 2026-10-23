@@ -2,5 +2,5 @@ skia-python==144.0.post2
 uharfbuzz==0.56.3
 fonttools==4.66.1
 numpy==2.5.4
-pillow==12.3.0
+pillow==13.0.0
 python-pptx==1.0.2
